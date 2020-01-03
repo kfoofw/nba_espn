@@ -31,12 +31,13 @@ Based on the ESPN data, each player is assigned their positions based on convent
 - F: Forward (probably for players who can play both SF and PF)
 - C: Center
 
-This aspect of position labelling is the crux for the Bayesian Hierarchical modelling analysis. For this project, I will explore the following issues:  
-- Understand the field goals for 3 points percentage (3P%) for different positions.  
+This aspect of position labelling is the crux for the Bayesian Hierarchical (BH) modelling analysis with the basketball position integrated into the hierarchy. For this project, I will explore the following issues:  
+- Understand the field goals for 3 points percentage (3P%) for different positions. 
+    - Since each 3 point field goal is dichotomous (0 or 1), the BH model will utilise a series of Bernoulli variables as modelled by a Binomial distribution with N trials.
     - (Work in Progress)
 - To see if 3 point percentages for "big men" roles have changed throughout the years. 
     - (In Future)
-- Explore the points per game (PPG) for different positions and how they have changed across time. This will be using simple linear regression with PPG as a continuous metric and Position as a nominal group.
+- Explore the points per game (PPG) for different positions and how they have changed across time.     - The Bayesian Hierarchical model will be using a negative binomial distribution for modelling PPG (given that Points per game is count data).
     - (In Future)
 
 # Software
