@@ -1,4 +1,4 @@
-Bayesian Hiearchical Modelling of NBA 3 point shooting
+Bayesian Hiearchical Modelling of NBA 3 point shooting in 2018/19 season
 ================
 Kenneth Foo
 02/01/2020
@@ -190,38 +190,201 @@ following distributions:
         distribution parametrised by θ and number of attempts N. This is
         not formally shown in the diagram.
   - Each player’s θ is generated from a Beta distribution as
-    parameterised by ω\_player and κ\_player
+    parameterised by the mode ω\_player and concentration κ\_player
       - ![P(\\theta | \\omega\_{player},
         \\kappa\_{player})](https://latex.codecogs.com/png.latex?P%28%5Ctheta%20%7C%20%5Comega_%7Bplayer%7D%2C%20%5Ckappa_%7Bplayer%7D%29
         "P(\\theta | \\omega_{player}, \\kappa_{player})")
+      - Represented by orange dotted lines
   - Given that κ\_player is conditionally independent on any other
     parameters, its prior is given separately. This prior is a Gamma
     distribution.
       - ![P(\\kappa\_{player})](https://latex.codecogs.com/png.latex?P%28%5Ckappa_%7Bplayer%7D%29
         "P(\\kappa_{player})")
+      - Represented by purple dotted lines
+      - Note that since this parameter is at the position grouping level
+        of the hierarchy, we have to create as many priors for each
+        grouping. A similar analogy is that we need a total of N
+        ω\_pos/κ\_pos parameters for N positions, and thus likewise we
+        need a total of N κ\_player parameters.
   - Each ω\_player is generated from a Beta distribution for each player
     position grouping as parameterised by ω\_pos and κ\_pos
       - ![P(\\omega\_{player} | \\omega\_{pos},
         \\kappa\_{pos})](https://latex.codecogs.com/png.latex?P%28%5Comega_%7Bplayer%7D%20%7C%20%5Comega_%7Bpos%7D%2C%20%5Ckappa_%7Bpos%7D%29
         "P(\\omega_{player} | \\omega_{pos}, \\kappa_{pos})")
+      - Represented by pink dotted lines
   - Each ω\_pos is also defined by a prior distribution which is a Beta
     distribution
       - ![P(\\omega\_{pos})](https://latex.codecogs.com/png.latex?P%28%5Comega_%7Bpos%7D%29
         "P(\\omega_{pos})")
+      - Represented by red dotted lines
   - Each κ\_pos is defined by a prior distribution which is a Gamma
     distribution
       - ![P(\\kappa\_{pos})](https://latex.codecogs.com/png.latex?P%28%5Ckappa_%7Bpos%7D%29
         "P(\\kappa_{pos})")
+      - Represented by dark green dotted lines
   - Denominator P(Y) represents the marginal distribution of Y
       - Not typically considered in JAGS Markov Chain Monte Carlo (MCMC)
-        simulations as the normalisation factors are cancelled out using
-        the MCMC algorithms (either Metropolis-Hastings or Gibs
-        Sampling)
+        simulations as the denominator is a normalisation factor that is
+        cancelled out using the MCMC algorithms (either
+        Metropolis-Hastings or Gibs Sampling)
 
 It is also worth noting that priors are set to be typically
 vague/non-commital unless one has defined knowledge in the particular
 field of interest.
 
-# Simulation Results
+## Simulation Results
 
-# Shrinkage
+Using modified scripts from the “Doing Bayesian Data Analysis” to run
+MCMC simulations on JAGS, we have the following results. 3 MCMC chains
+with separate initial points were simulated with 500 steps burn-in, and
+thinning in 100-steps intervals to reduce auto-correlation.
+
+### Overall Distribution for Omega
+
+The parameter “omegaO” represents the overall prior Beta distribution
+from which the omega\_pos parameters are generated. \* The top right
+graph show that there is a moderate effective sample size (ESS) of 4802.
+The rule of thumb should be around at least 10,000 in order for the high
+density intervals (HDI) quantile limits to be trusted, but at above
+3000, the estimated mean/mode of the distribution is still reliable. \*
+The top left graph shows the exploration of the 3 MCMC chains across the
+parameter spectrum, and we can observe that the chains did sufficient
+exploration (remember that omega is from a Beta distribution of limits 0
+and 1). \* The bottom left chart depicts the Gelman plot, which is a
+diagnostic for comparing the variance across chains against the variance
+within each chain. Basically, the Gelman-Rubin measures a value called
+“scale reduction factor” that represents if there is a significant
+difference between the variance within several chains and the variance
+between several chains. If the scale factor is above 1.1, it shows that
+some of the MCMC chains might have gotten stuck and may not have
+converged correctly. In our case, the scale factors are close to 1.0,
+which indicates convergence of the chains. \* The bottom right chart
+depicts the density chart for each chains. Since all chains have similar
+densities, we can deduce that the simulations corroborated each other.
+The stated MCSE represents the estimated SD of the sample mean in the
+chain, on the scale of the parameter value. Since MCSE is small, the
+standard deviation of the simulations estimates are ok in this
+case.
+
+![OmegaO](../2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-DiagomegaO.png)
+
+### Positional-Based Omega Distributions
+
+For the parameter “omega\[x\]” where x is the index for each position
+grouping, it represents the position grouping parameter that is
+generated from “omegaO”. The following plot compiles all the generated
+probabilitiy distribution for each position’s omega, where omega\[1\]
+represents the mode for the beta distribution for Centers and omega\[7\]
+represents the mode for the beta distribution for Shooting Guards. The
+95% (default) HDI of each distribution is shown, but unfortunately for
+certain positions, the distributions are so narrow that the superimposed
+text “blocks” each other out (for example as seen in omega\[7\]
+SG).
+
+![Omega1](../2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-Omega.png)
+
+As expected, big men roles such as Centers and Forwards do have much
+poorer 3 point shooting accuracy in general compared to backcourt roles
+such as Point Guards or Shooting Guards. This can be seen from the modes
+of the distributions. Additionally, Centers and Forwards also have a
+much wider variance in their distributions compared to PGs/SGs. We know
+this to be true when there are players such as Karl-Anthony Towns or
+Kevin Love who have exceptional 3 point shooting abilities, while there
+are other centers such as Rudy Gorbert or Deandre Jordan who do not have
+that touch.
+
+Interestingly, Power Forward roles seem to have an exceptional 3 point
+shooting percentages. Upon inspection of the data, players such as
+Pascal Siakam and Danilo Gallinari are included. There are some PFs who
+do have poor 3 point shooting percentages, but those who have poor
+shooting tend to takes less shots in total. This can explain the “shift”
+towards a higher than expected 3 point shooting percentage for this
+position.
+
+Another interesting discovery is that for the G position, the mode of
+the distribution is actually lower than that of PFs.
+
+### Difference in Positional Omegas
+
+We can also determine the difference in omega values for the different
+positions.
+
+A simple comparion between Center and PG positions is shown below. The
+plots on the top left and bottom right shows the histogram distributions
+for each position’s omega values, while the plot on the top right shows
+the simulated difference. We can see that for (C - PG), the mode of the
+difference is -0.084. However, this is insufficient for us to conclude
+that there is a significant difference. To do that, we rely on the HDI
+intervals of the histogram. Reading off the plot tells us that 99.7% of
+the histogram lies below 0, while only 0.3% lies above. Similarly the
+95% HDI upper limit is at -0.0126. Thus, we can conclude that there is a
+significant difference between the 3 point shooting percentages of C
+versus PGs.
+
+![C versus
+PG](../2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-OmegaDiff3.png)
+
+We can do a similar comparison for PF vs G positions. Note that we
+previously encountered that PFs have a surprisingly good 3 point
+shooting percentage, and also that Gs have a lower shooting percentage
+than PFs. As shown in the top right plot, the key value of 0 lies
+between the 95% HDI credible interval limits of the difference in
+positional omegas. Thus we cannot conclude that there is a difference
+between the 3 point shooting percentage of PFs versus Gs.
+
+![PF versus
+G](../2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-OmegaDiff5.png)
+
+### Individual Player’s Theta Comparison
+
+We can also find out player specific performances. Comparing two elite
+players in different positions (James Harden versus Karl-Anthony Towns),
+we now observe that in all of the histogram plots there is a red cross.
+This red cross represents the original individual player data without
+consideration of the hierarchy of positions. For example, we see that
+for Karl-Anthony Towns, his individual percentage is 139/354 = 39.27%.
+The mode of his theta histogram which is shown to be at 38.8% which is
+relatively lower. This is because there is “shrinkage” due to the
+positional information incorporated into the BH modelling, where Centers
+have much poorer shooting percentages at 26.9%.
+
+This shrinkage effect is not as evident in James Harden, whose actual 3
+point shooting percentage was 374/1030 = 36.3% compared to the
+positional mode value of 36.6%.
+
+![James Harden versus
+KAT](../2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-ThetaDiff1.png)
+
+It is worth highlighting that the term “shrinkage” may be interpreted
+wrongly. It does not always mean that the value estimated is reduced. In
+fact it works both ways. For those who have individual modes that are
+below the positional/group mode value, it will increase their estimated
+individual mode. Vice versa for those with individual modes above the
+position/group mode values. The concept of “shrinkage” applies in terms
+of shrinking towards the group value.
+
+This can be further illustrated by the comparison between Stephen Curry
+and Jusuf Nurkic. Stephen Curry has an shooting percentage of 352/807 =
+43.6% which is way above the positional PG mode of 35.7%. This brings
+his estimated shooting percentage to 41.8%. On the other hand, Jusuf
+Nurkic has made 0 out of 29 attempts, but based on the positional
+information (mode = 26.9%), his estimated shooting percentage is 6.18%.
+
+![Curry versus
+Nurkic](../2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-ThetaDiff2.png)
+
+## Summary
+
+In this analysis, I have demonstrated the application of Bayesian
+Hierarchical modelling with NBA positional information for 3 point
+shooting percentages. We also went through some diagnosis of MCMC
+simulations, and how to verify that the simulations are reliable.
+Additionally, we went through some analysis of the shooting percentages
+for each position and for certain players. With hiearchical modelling
+came a key concept of “shrinkage”, which was also illustrated when we
+compare players within each position and how the positional information
+impacted their estimated shooting percentages.
+
+A large part of this analysis was based on the book [Doing Bayesian Data
+Analysis](https://sites.google.com/site/doingbayesiandataanalysis/) by
+John Kruschke.

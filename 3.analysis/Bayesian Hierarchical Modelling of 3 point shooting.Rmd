@@ -1,5 +1,5 @@
 ---
-title: "Bayesian Hiearchical Modelling of NBA 3 point shooting"
+title: "Bayesian Hiearchical Modelling of NBA 3 point shooting in 2018/19 season"
 author: "Kenneth Foo"
 date: "02/01/2020"
 output: 
@@ -182,6 +182,7 @@ It is worth highlighting that the term "shrinkage" may be interpreted wrongly. I
 This can be further illustrated by the comparison between Stephen Curry and Jusuf Nurkic. Stephen Curry has an shooting percentage of 352/807 = 43.6% which is way above the positional PG mode of 35.7%. This brings his estimated shooting percentage to 41.8%. On the other hand, Jusuf Nurkic has made 0 out of 29 attempts, but based on the positional information (mode = 26.9%), his estimated shooting percentage is 6.18%.
 
 ![Curry versus Nurkic](../2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-ThetaDiff2.png)
+
 ## Summary
 
 In this analysis, I have demonstrated the application of Bayesian Hierarchical modelling with NBA positional information for 3 point shooting percentages. We also went through some diagnosis of MCMC simulations, and how to verify that the simulations are reliable. Additionally, we went through some analysis of the shooting percentages for each position and for certain players. With hiearchical modelling came a key concept of "shrinkage", which was also illustrated when we compare players within each position and how the positional information impacted their estimated shooting percentages.
