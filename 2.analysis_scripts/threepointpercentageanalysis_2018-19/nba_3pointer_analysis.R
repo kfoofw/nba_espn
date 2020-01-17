@@ -18,7 +18,7 @@ source("./2.analysis_scripts/base_scripts/Jags-Ybinom-XnomSsubjCcat-MbinomBetaOm
 # Optional: Specify filename root and graphical format for saving output.
 # Otherwise specify as NULL or leave saveName and saveType arguments 
 # out of function calls.
-fileNameRoot = "./2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-" 
+fileNameRoot = "./2.analysis_scripts/threepointpercentageanalysis_2018-19/output/ThreePointers-" 
 graphFileType = "png" 
 #------------------------------------------------------------------------------- 
 # # Read past MCMC data
