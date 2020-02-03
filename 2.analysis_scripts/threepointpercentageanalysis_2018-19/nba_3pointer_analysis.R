@@ -22,15 +22,15 @@ fileNameRoot = "./2.analysis_scripts/threepointpercentageanalysis_2018-19/output
 graphFileType = "png" 
 #------------------------------------------------------------------------------- 
 # # Read past MCMC data
-# load(file = "./2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-Mcmc.Rdata")
-# mcmcCoda = codaSamples
+load(file = "./2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-Mcmc.Rdata")
+mcmcCoda = codaSamples
 # rm(codaSamples)
 #------------------------------------------------------------------------------- 
 # Generate the MCMC chain:
 startTime = proc.time()
 mcmcCoda = genMCMC( data=myData , 
                     zName="tot_3pm", NName="tot_3pa", sName="PLAYER", cName="POS",
-                    numSavedSteps=1000 , #saveName=fileNameRoot ,
+                    numSavedSteps=70000 , #saveName=fileNameRoot ,
                     thinSteps=100 )
 stopTime = proc.time()
 elapsedTime = stopTime - startTime
