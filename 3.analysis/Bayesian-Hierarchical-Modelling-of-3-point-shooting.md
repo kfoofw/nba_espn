@@ -242,14 +242,15 @@ thinning in 100-steps intervals to reduce auto-correlation.
 ### Overall Distribution for Omega
 
 The parameter “omegaO” represents the overall prior Beta distribution
-from which the omega\_pos parameters are generated. 
-
-- The top right graph show that there is a moderate effective sample size (ESS) of 4802. The rule of thumb should be around at least 10,000 in order for the high density intervals (HDI) quantile limits to be trusted, but at above 3000, the estimated mean/mode of the distribution is still reliable. 
-- The top left graph shows the exploration of the 3 MCMC chains across the
+from which the omega\_pos parameters are generated. \* The top right
+graph show that there is a moderate effective sample size (ESS) of 4802.
+The rule of thumb should be around at least 10,000 in order for the high
+density intervals (HDI) quantile limits to be trusted, but at above
+3000, the estimated mean/mode of the distribution is still reliable. \*
+The top left graph shows the exploration of the 3 MCMC chains across the
 parameter spectrum, and we can observe that the chains did sufficient
 exploration (remember that omega is from a Beta distribution of limits 0
-and 1). 
-- The bottom left chart depicts the Gelman plot, which is a
+and 1). \* The bottom left chart depicts the Gelman plot, which is a
 diagnostic for comparing the variance across chains against the variance
 within each chain. Basically, the Gelman-Rubin measures a value called
 “scale reduction factor” that represents if there is a significant
@@ -257,11 +258,15 @@ difference between the variance within several chains and the variance
 between several chains. If the scale factor is above 1.1, it shows that
 some of the MCMC chains might have gotten stuck and may not have
 converged correctly. In our case, the scale factors are close to 1.0,
-which indicates convergence of the chains.
-- The bottom right chart depicts the density chart for each chains. Since all chains have similar densities, we can deduce that the simulations corroborated each other. The stated MCSE represents the estimated SD of the sample mean in the chain, on the scale of the parameter value. Since MCSE is small, the standard deviation of the simulations estimates are ok in this
+which indicates convergence of the chains. \* The bottom right chart
+depicts the density chart for each chains. Since all chains have similar
+densities, we can deduce that the simulations corroborated each other.
+The stated MCSE represents the estimated SD of the sample mean in the
+chain, on the scale of the parameter value. Since MCSE is small, the
+standard deviation of the simulations estimates are ok in this
 case.
 
-![OmegaO](../2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-DiagomegaO.png)
+![OmegaO](../2.analysis_scripts/threepointpercentageanalysis_2018-19/output/ThreePointers-DiagomegaO.png)
 
 ### Positional-Based Omega Distributions
 
@@ -276,7 +281,7 @@ certain positions, the distributions are so narrow that the superimposed
 text “blocks” each other out (for example as seen in omega\[7\]
 SG).
 
-![Omega1](../2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-Omega.png)
+![Omega1](../2.analysis_scripts/threepointpercentageanalysis_2018-19/output/ThreePointers-Omega.png)
 
 As expected, big men roles such as Centers and Forwards do have much
 poorer 3 point shooting accuracy in general compared to backcourt roles
@@ -317,7 +322,7 @@ significant difference between the 3 point shooting percentages of C
 versus PGs.
 
 ![C versus
-PG](../2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-OmegaDiff3.png)
+PG](../2.analysis_scripts/threepointpercentageanalysis_2018-19/output/ThreePointers-OmegaDiff3.png)
 
 We can do a similar comparison for PF vs G positions. Note that we
 previously encountered that PFs have a surprisingly good 3 point
@@ -328,7 +333,7 @@ positional omegas. Thus we cannot conclude that there is a difference
 between the 3 point shooting percentage of PFs versus Gs.
 
 ![PF versus
-G](../2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-OmegaDiff5.png)
+G](../2.analysis_scripts/threepointpercentageanalysis_2018-19/output/ThreePointers-OmegaDiff5.png)
 
 ### Individual Player’s Theta Comparison
 
@@ -348,7 +353,7 @@ point shooting percentage was 374/1030 = 36.3% compared to the
 positional mode value of 36.6%.
 
 ![James Harden versus
-KAT](../2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-ThetaDiff1.png)
+KAT](../2.analysis_scripts/threepointpercentageanalysis_2018-19/output/ThreePointers-ThetaDiff1.png)
 
 It is worth highlighting that the term “shrinkage” may be interpreted
 wrongly. It does not always mean that the value estimated is reduced. In
@@ -366,7 +371,7 @@ Nurkic has made 0 out of 29 attempts, but based on the positional
 information (mode = 26.9%), his estimated shooting percentage is 6.18%.
 
 ![Curry versus
-Nurkic](../2.analysis_scripts/threepointpercentage_analysis/output/ThreePointers-ThetaDiff2.png)
+Nurkic](../2.analysis_scripts/threepointpercentageanalysis_2018-19/output/ThreePointers-ThetaDiff2.png)
 
 ## Summary
 
