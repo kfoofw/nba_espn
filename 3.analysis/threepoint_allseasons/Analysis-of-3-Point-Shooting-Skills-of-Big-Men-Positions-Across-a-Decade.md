@@ -40,7 +40,7 @@ decade.
 
 <p align="center">
 
-<img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-Omega_Center_2009_2018.png" width = 600>
+<img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-Omega_Center_2009_2018.png" width = 800>
 
 </p>
 
@@ -75,7 +75,7 @@ after
 
 <p align="center">
 
-<img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-overlay_dens_center.png" width = 600>
+<img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-overlay_dens_center.png" width = 800>
 
 </p>
 
@@ -88,7 +88,7 @@ decade.
 
 <p align="center">
 
-<img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-ridge_center.png" width = 600>
+<img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-ridge_center.png" width = 800>
 
 </p>
 
@@ -111,7 +111,7 @@ noting.
 
 <p align="center">
 
-<img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-Omega_PF_2009_2018.png" width = 600>
+<img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-Omega_PF_2009_2018.png" width = 800>
 
 </p>
 
@@ -131,7 +131,7 @@ and seasons (inclusive of and) after
 
 <p align="center">
 
-<img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-overlay_dens_pf.png" width = 600>
+<img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-overlay_dens_pf.png" width = 800>
 
 </p>
 
@@ -144,7 +144,7 @@ mentioned.
 
 <p align="center">
 
-<img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-ridge_pf.png" width = 600>
+<img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-ridge_pf.png" width = 800>
 
 </p>
 
