@@ -1,4 +1,5 @@
-Bayesian Hiearchical Modelling of NBA 3 point shooting in 2018/19 season
+Bayesian Hierarchical Modelling of NBA 3 point shooting in 2018/19
+season
 ================
 Kenneth Foo
 02/01/2020
@@ -438,7 +439,7 @@ simulations, and how to verify that the simulations are reliable.
 Additionally, we went through some analysis of the shooting percentages
 for each position and for certain players.
 
-With hiearchical modelling came a key concept of “shrinkage”, which was
+With hierarchical modelling came a key concept of “shrinkage”, which was
 also illustrated when we compare players within each position and how
 the positional information impacted their estimated shooting
 percentages.

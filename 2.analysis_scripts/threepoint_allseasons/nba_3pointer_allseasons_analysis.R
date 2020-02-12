@@ -222,7 +222,7 @@ overlay_density_center <- compiled_tb %>%
 ggsave(paste0(fileNameRoot,"overlay_dens_center.png"), plot = overlay_density_center)
 
 overlay_density_pf <- compiled_tb %>% 
-  ggplot(aes(x = C, fill = factor(year)))+
+  ggplot(aes(x = PF, fill = factor(year)))+
   geom_density(alpha = 0.2) +
   facet_wrap(before_2015~.) +
   labs(x = "PF 3 Point Shooting %",
@@ -233,6 +233,7 @@ ggsave(paste0(fileNameRoot,"overlay_dens_pf.png"), plot = overlay_density_pf)
 # Density Ridge plot
 ridgeplot_center <- ggplot(compiled_tb, aes(x = C, y = factor(year), fill = factor(year))) + 
   geom_density_ridges(scale = 0.9) + 
+  scale_x_continuous(limits = c(0, 100), breaks = c(0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100)) +
   labs(x = "Center 3 Point Shooting %",
        y = "",
        fill = "Year") +
@@ -241,6 +242,7 @@ ggsave(paste0(fileNameRoot,"ridge_center.png"), plot = ridgeplot_center)
 
 ridgeplot_pf <- ggplot(compiled_tb, aes(x = PF, y = factor(year), fill = factor(year))) + 
   geom_density_ridges(scale = 0.9) + 
+  scale_x_continuous(limits = c(0, 100), breaks = c(0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100)) +
   labs(x = "PF 3 Point Shooting %",
        y = "",
        fill = "Year") +

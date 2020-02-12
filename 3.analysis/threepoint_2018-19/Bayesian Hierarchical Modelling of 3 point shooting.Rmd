@@ -308,6 +308,6 @@ This can be further illustrated by the comparison between Stephen Curry and Jusu
 
 In this analysis, I have demonstrated the application of Bayesian Hierarchical modelling with NBA positional information for 3 point shooting percentages. We also went through some diagnosis of MCMC simulations, and how to verify that the simulations are reliable. Additionally, we went through some analysis of the shooting percentages for each position and for certain players. 
 
-With hiearchical modelling came a key concept of "shrinkage", which was also illustrated when we compare players within each position and how the positional information impacted their estimated shooting percentages.
+With hierarchical modelling came a key concept of "shrinkage", which was also illustrated when we compare players within each position and how the positional information impacted their estimated shooting percentages.
 
 A large part of this analysis was based on the book [Doing Bayesian Data Analysis](https://sites.google.com/site/doingbayesiandataanalysis/) by John Kruschke.
