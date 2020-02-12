@@ -365,7 +365,7 @@ PGs.
 
 <p align="center">
 
-<img src = "../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-OmegaDiff3.png" width = 600>
+<img src = "../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-OmegaDiff3.png" width = 1000>
 
 </p>
 

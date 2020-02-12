@@ -268,7 +268,7 @@ significant difference between the 3 point shooting percentages of C
 versus PGs.
 
 <p align = "center">
-    <img src = "../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-OmegaDiff3.png" width = 600>
+    <img src = "../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-OmegaDiff3.png" width = 1000>
 </p>
 
 We can do a similar comparison for PF vs G positions. Note that we

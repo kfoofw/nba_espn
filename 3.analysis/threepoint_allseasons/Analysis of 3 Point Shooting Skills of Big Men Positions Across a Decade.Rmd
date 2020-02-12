@@ -24,7 +24,7 @@ For the regular seasons starting from 2009/10 to 2018/19, Markov Chain Monte Car
 Based on the simulations, we can observe that there is an evolution across the years within the decade.
 
 <p align = "center">
-    <img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-Omega_Center_2009_2018.png" width = 800>
+    <img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-Omega_Center_2009_2018.png" width = 1000>
 </p>
 
 From 2009 to 2014, the 3 point shooting percentages for centers were typically bimodal. We can postulate that within center positions, there might have been 2 types of players: those with exceptional 3 point shooting averages of around 35%, and those with much poorer shooting averages under 10%. Across each year, we see the "ebb and flow" of the 3 point shooting skills:
@@ -39,7 +39,7 @@ From 2009 to 2014, the 3 point shooting percentages for centers were typically b
 Here is another perspective of the Center density plots for all years, as segmented by seasons before 2015/16 and seasons (inclusive of and) after 2015/16.
 
 <p align = "center">
-    <img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-overlay_dens_center.png" width = 800>
+    <img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-overlay_dens_center.png" width = 1000>
 </p>
 
 It does seem like there is some deterioration in the 3 point shooting skills from 2017/18 to 2018/19 regular season.
@@ -47,7 +47,7 @@ It does seem like there is some deterioration in the 3 point shooting skills fro
 For an extra visualisation perspective, we can take a look at the density ridgeline plots for all years in the past decade.
 
 <p align = "center">
-    <img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-ridge_center.png" width = 800>
+    <img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-ridge_center.png" width = 1000>
 </p>
 
 Something worth noting is that for seasons before 2015/16, there were actually centers with superior 3 point shooting abilities even compared to the seasons including and after 2015/16. This can be seen by the non negligible density mass occupying between 37.5% to 42%. 
@@ -59,7 +59,7 @@ There also seems to be some form of deterioration of 3 point shooting skills for
 The 3 point shooting development within Power Forwards are not as exciting, but there are certain highlights worth noting.
 
 <p align = "center">
-    <img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-Omega_PF_2009_2018.png" width = 800>
+    <img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-Omega_PF_2009_2018.png" width = 1000>
 </p>
 
 Throughout the decade, there is an increasing improvement in 3 point shooting skills amongst PFs. 
@@ -70,13 +70,13 @@ Throughout the decade, there is an increasing improvement in 3 point shooting sk
 Similar to what we did for Centers, here is another perspective of the PF density plots for all years, as segmented by seasons before 2015/16 and seasons (inclusive of and) after 2015/16.
 
 <p align = "center">
-    <img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-overlay_dens_pf.png" width = 800>
+    <img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-overlay_dens_pf.png" width = 1000>
 </p>
 
 It does seem that the the regular season of 2015/16 seems to represent a peak transition period for 3 point shooting for PFs in tandem with centers (as previously observed). For seasons including and after 2015/16, we can see a higher density mass around the peak of the mode, which also corresponds to the narrowing of the 95% HDI range that was mentioned.
 
 <p align = "center">
-    <img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-ridge_pf.png" width = 800>
+    <img src = "../../2.analysis_scripts/threepoint_allseasons/output/ThreePointers-ridge_pf.png" width = 1000>
 </p>
 
 The density ridgeline plots of PF 3 point shooting shows an interesting development. In regular seasons 2013/14 and 2014/15, we can observe that there is a non-negligible proportion of exceptional 3 point shooting skills compared to 2015/16 and 2016/17 season as shown by the density mass occupying the regions beyond 35%.
