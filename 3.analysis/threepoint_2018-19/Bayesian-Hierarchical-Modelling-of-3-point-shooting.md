@@ -85,17 +85,18 @@ P(\\theta, \\omega|Y) = \\frac{P(Y | \\theta, \\omega) P(\\theta, \\omega)}{P(Y)
 ")  
 
 Given that theta is conditional upon omega, we can perform Markov
-factorisation for the conditional relationship between tehta and omega.
+factorisation for the conditional relationship between theta and omega.
 Thus, the numerator can be represented by the following:
 
   
 ![
-P(Y | \\theta, \\omega) P(\\theta, \\omega) = P(Y | \\theta) P(\\theta |
-\\omega) P(\\omega)
-](https://latex.codecogs.com/png.latex?%0AP%28Y%20%7C%20%5Ctheta%2C%20%5Comega%29%20P%28%5Ctheta%2C%20%5Comega%29%20%3D%20P%28Y%20%7C%20%5Ctheta%29%20P%28%5Ctheta%20%7C%20%5Comega%29%20P%28%5Comega%29%0A
+P(Y | \\theta, \\omega) P(\\theta, \\omega) = P(Y | \\theta) P(\\theta
+|\\omega) P(\\omega)
+](https://latex.codecogs.com/png.latex?%0AP%28Y%20%7C%20%5Ctheta%2C%20%5Comega%29%20P%28%5Ctheta%2C%20%5Comega%29%20%3D%20P%28Y%20%7C%20%5Ctheta%29%20P%28%5Ctheta%20%7C%5Comega%29%20P%28%5Comega%29%0A
 "
-P(Y | \\theta, \\omega) P(\\theta, \\omega) = P(Y | \\theta) P(\\theta | \\omega) P(\\omega)
+P(Y | \\theta, \\omega) P(\\theta, \\omega) = P(Y | \\theta) P(\\theta |\\omega) P(\\omega)
 ")  
+
 Thus, the overall posterior can be represented by the following:
 
   
@@ -106,6 +107,7 @@ P(\\omega)}{P(Y)}
 "
 P(\\theta, \\omega|Y) = \\frac{P(Y | \\theta) P(\\theta | \\omega) P(\\omega)}{P(Y)}
 ")  
+
 where in this case, omega serves as a kind of prior belief for the
 distribution of theta.
 
@@ -142,7 +144,7 @@ the following distributions: \* Bernoulli distribution + Parameterised
 by θ + Limites are 0 and 1
 
   - Binomial distribution
-      - Parametrised by θ and N
+      - Parameterised by θ and N
       - Limits are 0 and N
       - Series of N independent Bernoulli trials of the same θ.
   - Beta distribution
@@ -178,26 +180,34 @@ to fully represent the hierarchical grouping.
 
 ![BH Diagram](./img/BH_model_diagram.png)
 
-As shown in the above BH diagram, the posterior is represented by the
-following distributions:
+As shown in the above BH diagram, we can analyse it from a bottoms up
+approach (player individual skills derived from positional based skills,
+which is derived from assumed priors). The posterior is represented by
+the following distributions:
 
   - Each player’s 3 point shooting trial is represented by a Bernoulli
     distribution parameterised by
         θ
+    
       - ![P(Y|\\theta)](https://latex.codecogs.com/png.latex?P%28Y%7C%5Ctheta%29
         "P(Y|\\theta)")
-      - The series of 3 point shootings by each player is a Binomial
-        distribution parametrised by θ and number of attempts N. This is
-        not formally shown in the diagram.
+
+  - The series of 3 point shootings by each player is a Binomial
+    distribution parameterised by θ and number of attempts N. This is
+    not formally shown in the diagram.
+
   - Each player’s θ is generated from a Beta distribution as
     parameterised by the mode ω\_player and concentration κ\_player
+    
       - ![P(\\theta | \\omega\_{player},
         \\kappa\_{player})](https://latex.codecogs.com/png.latex?P%28%5Ctheta%20%7C%20%5Comega_%7Bplayer%7D%2C%20%5Ckappa_%7Bplayer%7D%29
         "P(\\theta | \\omega_{player}, \\kappa_{player})")
       - Represented by orange dotted lines
+
   - Given that κ\_player is conditionally independent on any other
     parameters, its prior is given separately. This prior is a Gamma
     distribution.
+    
       - ![P(\\kappa\_{player})](https://latex.codecogs.com/png.latex?P%28%5Ckappa_%7Bplayer%7D%29
         "P(\\kappa_{player})")
       - Represented by purple dotted lines
@@ -205,28 +215,35 @@ following distributions:
         of the hierarchy, we have to create as many priors for each
         grouping. A similar analogy is that we need a total of N
         ω\_pos/κ\_pos parameters for N positions, and thus likewise we
-        need a total of N κ\_player parameters.
+        need a total of N κ\_player prior parameters.
+
   - Each ω\_player is generated from a Beta distribution for each player
     position grouping as parameterised by ω\_pos and κ\_pos
+    
       - ![P(\\omega\_{player} | \\omega\_{pos},
         \\kappa\_{pos})](https://latex.codecogs.com/png.latex?P%28%5Comega_%7Bplayer%7D%20%7C%20%5Comega_%7Bpos%7D%2C%20%5Ckappa_%7Bpos%7D%29
         "P(\\omega_{player} | \\omega_{pos}, \\kappa_{pos})")
       - Represented by pink dotted lines
+
   - Each ω\_pos is also defined by a prior distribution which is a Beta
     distribution
+    
       - ![P(\\omega\_{pos})](https://latex.codecogs.com/png.latex?P%28%5Comega_%7Bpos%7D%29
         "P(\\omega_{pos})")
       - Represented by red dotted lines
+
   - Each κ\_pos is defined by a prior distribution which is a Gamma
     distribution
+    
       - ![P(\\kappa\_{pos})](https://latex.codecogs.com/png.latex?P%28%5Ckappa_%7Bpos%7D%29
         "P(\\kappa_{pos})")
       - Represented by dark green dotted lines
+
   - Denominator P(Y) represents the marginal distribution of Y
+    
       - Not typically considered in JAGS Markov Chain Monte Carlo (MCMC)
         simulations as the denominator is a normalisation factor that is
-        cancelled out using the MCMC algorithms (either
-        Metropolis-Hastings or Gibs Sampling)
+        cancelled out using the MCMC algorithms (Gibs Sampling).
 
 It is also worth noting that priors are set to be typically
 vague/non-commital unless one has defined knowledge in the particular
@@ -273,7 +290,7 @@ from which the omega\_pos parameters are generated.
     simulations estimates are ok in this
 case.
 
-![OmegaO](../2.analysis_scripts/threepointpercentageanalysis_2018-19/output/ThreePointers-DiagomegaO.png)
+![OmegaO](../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-DiagomegaO.png)
 
 ### Positional-Based Omega Distributions
 
@@ -288,7 +305,7 @@ certain positions, the distributions are so narrow that the superimposed
 text “blocks” each other out (for example as seen in omega\[7\]
 SG).
 
-![Omega1](../2.analysis_scripts/threepointpercentageanalysis_2018-19/output/ThreePointers-Omega.png)
+![Omega1](../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-Omega.png)
 
 As expected, big men roles such as Centers and Forwards do have much
 poorer 3 point shooting accuracy in general compared to backcourt roles
@@ -309,7 +326,11 @@ towards a higher than expected 3 point shooting percentage for this
 position.
 
 Another interesting discovery is that for the G position, the mode of
-the distribution is actually lower than that of PFs.
+the distribution is actually lower than that of PFs, and also has a
+higher spread of the distribution. Perhaps it could be said that since G
+position players play dual roles (PG and SG), their subgroup are players
+that have a mix of skills, while PFs tend to compromise of players with
+homogenous exceptional 3 point shooting skills.
 
 ### Difference in Positional Omegas
 
@@ -329,7 +350,7 @@ significant difference between the 3 point shooting percentages of C
 versus PGs.
 
 ![C versus
-PG](../2.analysis_scripts/threepointpercentageanalysis_2018-19/output/ThreePointers-OmegaDiff3.png)
+PG](../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-OmegaDiff3.png)
 
 We can do a similar comparison for PF vs G positions. Note that we
 previously encountered that PFs have a surprisingly good 3 point
@@ -340,7 +361,7 @@ positional omegas. Thus we cannot conclude that there is a difference
 between the 3 point shooting percentage of PFs versus Gs.
 
 ![PF versus
-G](../2.analysis_scripts/threepointpercentageanalysis_2018-19/output/ThreePointers-OmegaDiff5.png)
+G](../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-OmegaDiff5.png)
 
 ### Individual Player’s Theta Comparison
 
@@ -360,7 +381,7 @@ point shooting percentage was 374/1030 = 36.3% compared to the
 positional mode value of 36.6%.
 
 ![James Harden versus
-KAT](../2.analysis_scripts/threepointpercentageanalysis_2018-19/output/ThreePointers-ThetaDiff1.png)
+KAT](../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-ThetaDiff1.png)
 
 It is worth highlighting that the term “shrinkage” may be interpreted
 wrongly. It does not always mean that the value estimated is reduced. In
@@ -378,7 +399,7 @@ Nurkic has made 0 out of 29 attempts, but based on the positional
 information (mode = 26.9%), his estimated shooting percentage is 6.18%.
 
 ![Curry versus
-Nurkic](../2.analysis_scripts/threepointpercentageanalysis_2018-19/output/ThreePointers-ThetaDiff2.png)
+Nurkic](../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-ThetaDiff2.png)
 
 ## Summary
 
@@ -387,10 +408,12 @@ Hierarchical modelling with NBA positional information for 3 point
 shooting percentages. We also went through some diagnosis of MCMC
 simulations, and how to verify that the simulations are reliable.
 Additionally, we went through some analysis of the shooting percentages
-for each position and for certain players. With hiearchical modelling
-came a key concept of “shrinkage”, which was also illustrated when we
-compare players within each position and how the positional information
-impacted their estimated shooting percentages.
+for each position and for certain players.
+
+With hiearchical modelling came a key concept of “shrinkage”, which was
+also illustrated when we compare players within each position and how
+the positional information impacted their estimated shooting
+percentages.
 
 A large part of this analysis was based on the book [Doing Bayesian Data
 Analysis](https://sites.google.com/site/doingbayesiandataanalysis/) by
