@@ -178,7 +178,11 @@ P(\\theta, \\omega_{player}, \\kappa_{player}, \\omega_{pos}, \\kappa_{pos}|Y) =
 Note that in the final posterior, we have included additional parameters
 to fully represent the hierarchical grouping.
 
-![BH Diagram](./img/BH_model_diagram.png)
+<p align="center">
+
+<img src = "./img/BH_model_diagram.png" width = 600>
+
+</p>
 
 As shown in the above BH diagram, we can analyse it from a bottoms up
 approach (player individual skills derived from positional based skills,
@@ -290,7 +294,11 @@ from which the omega\_pos parameters are generated.
     simulations estimates are ok in this
 case.
 
-![OmegaO](../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-DiagomegaO.png)
+<p align="center">
+
+<img src = "../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-DiagomegaO.png" width = 600>
+
+</p>
 
 ### Positional-Based Omega Distributions
 
@@ -305,7 +313,11 @@ certain positions, the distributions are so narrow that the superimposed
 text “blocks” each other out (for example as seen in omega\[7\]
 SG).
 
-![Omega1](../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-Omega.png)
+<p align="center">
+
+<img src = "../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-Omega.png" width = 600>
+
+</p>
 
 As expected, big men roles such as Centers and Forwards do have much
 poorer 3 point shooting accuracy in general compared to backcourt roles
@@ -347,10 +359,14 @@ intervals of the histogram. Reading off the plot tells us that 99.7% of
 the histogram lies below 0, while only 0.3% lies above. Similarly the
 95% HDI upper limit is at -0.0126. Thus, we can conclude that there is a
 significant difference between the 3 point shooting percentages of C
-versus PGs.
+versus
+PGs.
 
-![C versus
-PG](../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-OmegaDiff3.png)
+<p align="center">
+
+<img src = "../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-OmegaDiff3.png" width = 600>
+
+</p>
 
 We can do a similar comparison for PF vs G positions. Note that we
 previously encountered that PFs have a surprisingly good 3 point
@@ -358,10 +374,14 @@ shooting percentage, and also that Gs have a lower shooting percentage
 than PFs. As shown in the top right plot, the key value of 0 lies
 between the 95% HDI credible interval limits of the difference in
 positional omegas. Thus we cannot conclude that there is a difference
-between the 3 point shooting percentage of PFs versus Gs.
+between the 3 point shooting percentage of PFs versus
+Gs.
 
-![PF versus
-G](../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-OmegaDiff5.png)
+<p align="center">
+
+<img src = "../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-OmegaDiff5.png" width = 600>
+
+</p>
 
 ### Individual Player’s Theta Comparison
 
@@ -378,10 +398,14 @@ have much poorer shooting percentages at 26.9%.
 
 This shrinkage effect is not as evident in James Harden, whose actual 3
 point shooting percentage was 374/1030 = 36.3% compared to the
-positional mode value of 36.6%.
+positional mode value of
+36.6%.
 
-![James Harden versus
-KAT](../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-ThetaDiff1.png)
+<p align="center">
+
+<img src = "../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-ThetaDiff1.png" width = 600>
+
+</p>
 
 It is worth highlighting that the term “shrinkage” may be interpreted
 wrongly. It does not always mean that the value estimated is reduced. In
@@ -396,10 +420,14 @@ and Jusuf Nurkic. Stephen Curry has an shooting percentage of 352/807 =
 43.6% which is way above the positional PG mode of 35.7%. This brings
 his estimated shooting percentage to 41.8%. On the other hand, Jusuf
 Nurkic has made 0 out of 29 attempts, but based on the positional
-information (mode = 26.9%), his estimated shooting percentage is 6.18%.
+information (mode = 26.9%), his estimated shooting percentage is
+6.18%.
 
-![Curry versus
-Nurkic](../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-ThetaDiff2.png)
+<p align="center">
+
+<img src = "../../2.analysis_scripts/threepoint_2018-19/output/ThreePointers-ThetaDiff2.png" width = 600>
+
+</p>
 
 ## Summary
 
