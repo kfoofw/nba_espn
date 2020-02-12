@@ -36,7 +36,7 @@ This aspect of position labelling is the crux for the Bayesian Hierarchical (BH)
     - Since each 3 point field goal is dichotomous (0 or 1), the BH model will utilise a series of Bernoulli variables as modelled by a Binomial distribution with N trials.
     - [Link to Analysis](https://github.com/kfoofw/nba_espn/blob/master/3.analysis/threepoint_2018-19/Bayesian-Hierarchical-Modelling-of-3-point-shooting.md)
 - To see if 3 point percentages for "big men" roles have changed throughout the years. 
-    - [Link to Analysis](https://github.com/kfoofw/nba_espn/blob/master/3.analysis/threepoint_2018-19/Analysis-of-3-Point-Shooting-Skills-of-Big-Men-Positions-Across-a-Decade.md)
+    - [Link to Analysis](https://github.com/kfoofw/nba_espn/blob/master/3.analysis/threepoint_allseasons/Analysis-of-3-Point-Shooting-Skills-of-Big-Men-Positions-Across-a-Decade.md)
 - Explore the points per game (PPG) for different positions and how they have changed across time.     - The Bayesian Hierarchical model will be using a negative binomial distribution for modelling PPG (given that Points per game is count data).
     - (In Future)
 
