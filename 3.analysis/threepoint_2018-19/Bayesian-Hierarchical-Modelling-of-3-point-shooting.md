@@ -154,9 +154,11 @@ P(\\theta, \\omega_{pos}|Y) = \\frac{P(Y | \\theta) P(\\theta | \\omega_{pos}) P
 
 Before we proceed, we need to define the distributions to be
 incorporated into the BH modelling. For this example, we will utilise
-the following distributions: \* Bernoulli distribution + Parameterised
-by θ + Limites are 0 and 1
+the following distributions:
 
+  - Bernoulli distribution
+      - Parameterised by θ
+      - Limits are 0 and 1
   - Binomial distribution
       - Parameterised by θ and N
       - Limits are 0 and N
