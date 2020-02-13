@@ -95,7 +95,11 @@ distribution of theta.
 
 Different positions will have different skillsets but within each
 position, players tend to have similar skillsets. This gives us the
-premise for constructing the Bayesian Hierarchical model.
+premise for constructing the Bayesian Hierarchical model. For those who are not familiar to it, we incorporate player positions information in a hierarchical structure that provides a good basis for generating individual players' skills. This is based on the generally sound assumption that players within different positions have more homogenous skills. And this hierarchy is anchored by an overall population distribution that represents the overall NBA league wide shooting capability for that particular season.
+
+<p align = "center">
+    <img src = "./img/hierarchy_simplification.png" width = 1000>
+</p>
 
 To help facilitate this train of thought, it is natural to think that
 PGs tend to have better 3 point shooting skills compared to Centers.

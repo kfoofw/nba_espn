@@ -28,9 +28,31 @@ of the posterior for different players. For those who are not familiar
 to it, we incorporate player positions information in a hierarchical
 structure that provides a good basis for generating individual players’
 skills. This is based on the generally sound assumption that players
-within different positions have more homogenous skills. The R script
-used for this analysis can be found in this
-[folder](../../2.analysis_scripts/threepoint_allseasons).
+within different positions have more homogenous skills. And this
+hierarchy is anchored by an overall population distribution that
+represents the overall NBA league wide shooting capability for that
+particular season.
+
+<p align="center">
+
+<img src = "./img/hierarchy_simplification.png" width = 1000>
+
+</p>
+
+Instead of focusing on individual players abilities, we will take a look
+at the positional level omegas (which represents the mode of the assumed
+beta distribution) for each regular season, specifically for the Center
+and Power Forward distributions. As an example, below is the depiction
+of all positional omegas (including the overall omega considering all
+positions) for the regular season in 2018/19 which was generated in the
+previous
+[article](https://github.com/kfoofw/nba_espn/blob/master/3.analysis/threepoint_2018-19/Bayesian-Hierarchical-Modelling-of-3-point-shooting.md).
+
+<p align="center">
+
+<img src = "./img/ThreePointers-Omega.png" width = 1000>
+
+</p>
 
 ## Analysis of Position: Center
 
@@ -186,6 +208,9 @@ Center profile with decent 3 point shooting average.
 For PFs, we observed that there is a big focus on 3 point shooting skill
 development, and this skillset evolved to be relatively homogenous among
 players in that position as shown by the narrowing of the HDI ranges.
+
+The R script used for this analysis can be found in this
+[folder](../../2.analysis_scripts/threepoint_allseasons).
 
 A large part of this analysis was based on the book [Doing Bayesian Data
 Analysis](https://sites.google.com/site/doingbayesiandataanalysis/) by
