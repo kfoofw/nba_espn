@@ -271,7 +271,7 @@ plotMCMC = function( codaSamples ,
         temp = c( temp , which(levels(myData[[cName]])==diffCVec[i]) )
       }
       diffCVec = temp
-      openGraph(width=2.5*Nidx,height=2.0*Nidx)
+      openGraph(width=4*Nidx,height=3*Nidx)
       par( mfrow=c(Nidx,Nidx) )
       xLim = range(c( compVal, rope,
                       mcmcMat[,paste0("omega[",diffCVec,"]")] ))
