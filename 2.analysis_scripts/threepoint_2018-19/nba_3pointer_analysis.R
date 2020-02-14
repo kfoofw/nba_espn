@@ -48,6 +48,7 @@ summaryInfo = smryMCMC( mcmcCoda , compVal=NULL ,
                         # diffSVec=c(75,156, 159,844) , 
                         # diffCVec=c(1,2,3) , 
                         compValDiff=0.0 , saveName=fileNameRoot )
+windows.options(width=10, height=10)
 # Display posterior information:
 plotMCMC( mcmcCoda , data=myData , 
           zName="tot_3pm", NName="tot_3pa", sName="PLAYER", cName="POS",
