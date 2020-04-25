@@ -37,13 +37,9 @@ players with poor 3 point shooting skills (and thus a low θ).
 
 This can be represented by the following:
 
-  
-![
-P(\\theta|Y) = \\frac{P(Y | \\theta) P(\\theta)}{P(Y)}
-](https://latex.codecogs.com/png.latex?%0AP%28%5Ctheta%7CY%29%20%3D%20%5Cfrac%7BP%28Y%20%7C%20%5Ctheta%29%20P%28%5Ctheta%29%7D%7BP%28Y%29%7D%0A
-"
-P(\\theta|Y) = \\frac{P(Y | \\theta) P(\\theta)}{P(Y)}
-")  
+<div align="center">
+  <img src=./img/bayes_rule.png>
+</div>
 
 where Y is the data, theta is the parameter of the Bernoulli
 distribution.
@@ -51,18 +47,28 @@ distribution.
 For a quick summary on Bayes
     Rule,
 
-  - ![P(\\theta|Y)](https://latex.codecogs.com/png.latex?P%28%5Ctheta%7CY%29
-    "P(\\theta|Y)"): the posterior probability/credibility of the theta
+  - The posterior probability/credibility of the theta
     parameter given the data Y.  
-  - ![P(Y |
-    \\theta)](https://latex.codecogs.com/png.latex?P%28Y%20%7C%20%5Ctheta%29
-    "P(Y | \\theta)"): The likelihood of the data given the parameter
+  <div align="center">
+      <img src=./img/bayes_rule_lhs.png>
+  </div>
+
+  - The likelihood of the data given the parameter
     theta  
-  - ![P(\\theta)](https://latex.codecogs.com/png.latex?P%28%5Ctheta%29
-    "P(\\theta)"): The prior/credibility of the parameters without the
+    <div align="center">
+      <img src=./img/bayes_rule_likelihood.png>
+    </div>
+
+  - The prior/credibility of the parameters without the
     data D  
-  - ![P(Y)](https://latex.codecogs.com/png.latex?P%28Y%29 "P(Y)"): the
-    marginal likelihood
+    <div align="center">
+      <img src=./img/bayes_rule_prior.png>
+    </div>
+
+  - The marginal likelihood
+    <div align="center">
+      <img src=./img/bayes_rule_marginal.png>
+    </div>
 
 ## Simple/Naive Bayesian Hierarchical (BH) Modelling
 
@@ -76,38 +82,23 @@ represented by θ, we can integrate another parameter omega ω into the BH
 model, where ω parameterises the skillset distributions for different
 positions.
 
-  
-![
-P(\\theta, \\omega|Y) = \\frac{P(Y | \\theta, \\omega) P(\\theta,
-\\omega)}{P(Y)}
-](https://latex.codecogs.com/png.latex?%0AP%28%5Ctheta%2C%20%5Comega%7CY%29%20%3D%20%5Cfrac%7BP%28Y%20%7C%20%5Ctheta%2C%20%5Comega%29%20P%28%5Ctheta%2C%20%5Comega%29%7D%7BP%28Y%29%7D%0A
-"
-P(\\theta, \\omega|Y) = \\frac{P(Y | \\theta, \\omega) P(\\theta, \\omega)}{P(Y)}
-")  
+<div align="center">
+      <img src=./img/bayes_rule2_overall.png>
+</div> 
 
 Given that theta is conditional upon omega, we can perform Markov
 factorisation for the conditional relationship between theta and omega.
 Thus, the numerator can be represented by the following:
 
-  
-![
-P(Y | \\theta, \\omega) P(\\theta, \\omega) = P(Y | \\theta) P(\\theta
-|\\omega) P(\\omega)
-](https://latex.codecogs.com/png.latex?%0AP%28Y%20%7C%20%5Ctheta%2C%20%5Comega%29%20P%28%5Ctheta%2C%20%5Comega%29%20%3D%20P%28Y%20%7C%20%5Ctheta%29%20P%28%5Ctheta%20%7C%5Comega%29%20P%28%5Comega%29%0A
-"
-P(Y | \\theta, \\omega) P(\\theta, \\omega) = P(Y | \\theta) P(\\theta |\\omega) P(\\omega)
-")  
+<div align="center">
+      <img src=./img/bayes_rule2_num.png>
+</div> 
 
 Thus, the overall posterior can be represented by the following:
 
-  
-![
-P(\\theta, \\omega|Y) = \\frac{P(Y | \\theta) P(\\theta | \\omega)
-P(\\omega)}{P(Y)}
-](https://latex.codecogs.com/png.latex?%0AP%28%5Ctheta%2C%20%5Comega%7CY%29%20%3D%20%5Cfrac%7BP%28Y%20%7C%20%5Ctheta%29%20P%28%5Ctheta%20%7C%20%5Comega%29%20P%28%5Comega%29%7D%7BP%28Y%29%7D%0A
-"
-P(\\theta, \\omega|Y) = \\frac{P(Y | \\theta) P(\\theta | \\omega) P(\\omega)}{P(Y)}
-")  
+<div align="center">
+      <img src=./img/bayes_rule2_transformed.png>
+</div> 
 
 where in this case, omega serves as a kind of prior belief for the
 distribution of theta.
@@ -141,14 +132,9 @@ accurate thetas for the relevant positions since the intra-group
 properties are not “cross-contaminated” or diluted. This can be seen by
 the following formulation:
 
-  
-![
-P(\\theta, \\omega\_{pos}|Y) = \\frac{P(Y | \\theta) P(\\theta |
-\\omega\_{pos}) P(\\omega\_{pos})}{P(Y)}
-](https://latex.codecogs.com/png.latex?%0AP%28%5Ctheta%2C%20%5Comega_%7Bpos%7D%7CY%29%20%3D%20%5Cfrac%7BP%28Y%20%7C%20%5Ctheta%29%20P%28%5Ctheta%20%7C%20%5Comega_%7Bpos%7D%29%20P%28%5Comega_%7Bpos%7D%29%7D%7BP%28Y%29%7D%0A
-"
-P(\\theta, \\omega_{pos}|Y) = \\frac{P(Y | \\theta) P(\\theta | \\omega_{pos}) P(\\omega_{pos})}{P(Y)}
-")  
+<div align="center">
+      <img src=./img/bayes_rule3_overall.png>
+</div> 
 
 ## Choice of Distributions for BH Model
 
@@ -166,10 +152,9 @@ the following distributions:
   - Beta distribution
       - Parameterised by A, B
       - Limits are 0 and 1
-      - Note that the mode ω and concentration κ
-      - ![a = \\omega (\\kappa-2) + 1, b = (1-\\omega)(\\kappa -2)
-        +1](https://latex.codecogs.com/png.latex?a%20%3D%20%5Comega%20%28%5Ckappa-2%29%20%2B%201%2C%20b%20%3D%20%281-%5Comega%29%28%5Ckappa%20-2%29%20%2B1
-        "a = \\omega (\\kappa-2) + 1, b = (1-\\omega)(\\kappa -2) +1")
+      - Note the mode ω and concentration κ
+      - A = ω(κ-2)+ 1, B = (1-ω)(κ-2)+1
+    
   - Gamma distribution
       - Parameterised by shape S and rate R
       - Limits are 0 and Infinity
@@ -179,17 +164,9 @@ the following distributions:
 To create the model syntax for the distributions, we need to incorporate
 the distributions into the finalised posterior representation as shown:
 
-  
-![
-P(\\theta, \\omega\_{player}, \\kappa\_{player}, \\omega\_{pos},
-\\kappa\_{pos}|Y) = \\frac{P(Y | \\theta) P(\\theta | \\omega\_{player},
-\\kappa\_{player}) P(\\kappa\_{player}) P(\\omega\_{player} |
-\\omega\_{pos}, \\kappa\_{pos}) P(\\omega\_{pos})
-P(\\kappa\_{pos})}{P(Y)}
-](https://latex.codecogs.com/png.latex?%0AP%28%5Ctheta%2C%20%5Comega_%7Bplayer%7D%2C%20%5Ckappa_%7Bplayer%7D%2C%20%5Comega_%7Bpos%7D%2C%20%5Ckappa_%7Bpos%7D%7CY%29%20%3D%20%5Cfrac%7BP%28Y%20%7C%20%5Ctheta%29%20P%28%5Ctheta%20%7C%20%5Comega_%7Bplayer%7D%2C%20%5Ckappa_%7Bplayer%7D%29%20P%28%5Ckappa_%7Bplayer%7D%29%20P%28%5Comega_%7Bplayer%7D%20%7C%20%5Comega_%7Bpos%7D%2C%20%5Ckappa_%7Bpos%7D%29%20%20P%28%5Comega_%7Bpos%7D%29%20P%28%5Ckappa_%7Bpos%7D%29%7D%7BP%28Y%29%7D%0A
-"
-P(\\theta, \\omega_{player}, \\kappa_{player}, \\omega_{pos}, \\kappa_{pos}|Y) = \\frac{P(Y | \\theta) P(\\theta | \\omega_{player}, \\kappa_{player}) P(\\kappa_{player}) P(\\omega_{player} | \\omega_{pos}, \\kappa_{pos})  P(\\omega_{pos}) P(\\kappa_{pos})}{P(Y)}
-")  
+<div align="center">
+      <img src=./img/bayes_rule4_overall.png>
+</div> 
 
 Note that in the final posterior, we have included additional parameters
 to fully represent the hierarchical grouping.
@@ -209,8 +186,9 @@ the following distributions:
     distribution parameterised by
         θ
     
-      - ![P(Y|\\theta)](https://latex.codecogs.com/png.latex?P%28Y%7C%5Ctheta%29
-        "P(Y|\\theta)")
+    <div align="center">
+        <img src=./img/bayes_rule_likelihood.png>
+    </div> 
 
   - The series of 3 point shootings by each player is a Binomial
     distribution parameterised by θ and number of attempts N. This is
@@ -219,46 +197,44 @@ the following distributions:
   - Each player’s θ is generated from a Beta distribution as
     parameterised by the mode ω\_player and concentration κ\_player
     
-      - ![P(\\theta | \\omega\_{player},
-        \\kappa\_{player})](https://latex.codecogs.com/png.latex?P%28%5Ctheta%20%7C%20%5Comega_%7Bplayer%7D%2C%20%5Ckappa_%7Bplayer%7D%29
-        "P(\\theta | \\omega_{player}, \\kappa_{player})")
       - Represented by orange dotted lines
+    <div align="center">
+        <img src=./img/bayes_rule5_2.png>
+    </div> 
 
   - Given that κ\_player is conditionally independent on any other
     parameters, its prior is given separately. This prior is a Gamma
     distribution.
-    
-      - ![P(\\kappa\_{player})](https://latex.codecogs.com/png.latex?P%28%5Ckappa_%7Bplayer%7D%29
-        "P(\\kappa_{player})")
       - Represented by purple dotted lines
       - Note that since this parameter is at the position grouping level
         of the hierarchy, we have to create as many priors for each
         grouping. A similar analogy is that we need a total of N
         ω\_pos/κ\_pos parameters for N positions, and thus likewise we
         need a total of N κ\_player prior parameters.
+    <div align="center">
+        <img src=./img/bayes_rule5_3.png>
+    </div> 
 
   - Each ω\_player is generated from a Beta distribution for each player
     position grouping as parameterised by ω\_pos and κ\_pos
-    
-      - ![P(\\omega\_{player} | \\omega\_{pos},
-        \\kappa\_{pos})](https://latex.codecogs.com/png.latex?P%28%5Comega_%7Bplayer%7D%20%7C%20%5Comega_%7Bpos%7D%2C%20%5Ckappa_%7Bpos%7D%29
-        "P(\\omega_{player} | \\omega_{pos}, \\kappa_{pos})")
       - Represented by pink dotted lines
+    <div align="center">
+        <img src=./img/bayes_rule5_4.png>
+    </div> 
 
   - Each ω\_pos is also defined by a prior distribution which is a Beta
     distribution
-    
-      - ![P(\\omega\_{pos})](https://latex.codecogs.com/png.latex?P%28%5Comega_%7Bpos%7D%29
-        "P(\\omega_{pos})")
       - Represented by red dotted lines
+    <div align="center">
+        <img src=./img/bayes_rule5_5.png>
+    </div> 
 
   - Each κ\_pos is defined by a prior distribution which is a Gamma
     distribution
-    
-      - ![P(\\kappa\_{pos})](https://latex.codecogs.com/png.latex?P%28%5Ckappa_%7Bpos%7D%29
-        "P(\\kappa_{pos})")
       - Represented by dark green dotted lines
-
+    <div align="center">
+        <img src=./img/bayes_rule5_6.png>
+    </div> 
   - Denominator P(Y) represents the marginal distribution of Y
     
       - Not typically considered in JAGS Markov Chain Monte Carlo (MCMC)
